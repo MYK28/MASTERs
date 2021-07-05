@@ -48,7 +48,8 @@
 - 誰がどのくらい把握してるのか確認したいとき
 
 ## 設計書
-
+[ER図](https://drive.google.com/file/d/1Fal9Ujkk-QrWhgf-4C220bZ52zRVQxBv/view?usp=sharing)
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1LBrolq5LKG2RGz3D7pPrrrtQr4juKXZeCF1ZjXyLuk0/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1tgeQV8z7OhbchBoVh_remVqJHYZ1D6R1DJseSlaHsEg/edit?usp=sharing>
