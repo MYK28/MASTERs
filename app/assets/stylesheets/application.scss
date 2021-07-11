@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ 
+ *{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+ }
+ 
+ body{
+   min-height: 100vh;
+   position: relative;
+ }
+
+ footer{
+   width: 100%;
+   background-color: #001021;
+   color: #fff;
+   text-align: center;
+   padding: 10px 0;
+
+   position: absolute;
+   bottom: 0;
+ }
