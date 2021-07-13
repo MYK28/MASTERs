@@ -11,8 +11,9 @@ class Admin::InformationsController < ApplicationController
 
   def create
     @information = Information.new(information_params)
+    @information.admin_id = current_admin.id
     if @information.save
-      redirect_to admin_information_path
+      redirect_to admin_information_path(@information)
     else
       render :new
     end

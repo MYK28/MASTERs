@@ -1,1 +1,24 @@
-<h4>連絡詳細<h4>
+<h4>連絡詳細画面<h4>
+<div class="col-md-10 col-md-offset-1 mx-auto informationShow-wrap">
+  <div class="row information-wrap">
+    <div class="col-md-8">
+      <div class="card-left">
+        <%= attachment_image_tag @information, :image, width: "100%" %>
+      </div> <!-- col-md-8// -->
+    </div> <!-- card-left// -->
+    <div class="col-md-4">
+      <div class="card-right">
+        <div class="card-right-message">
+          <div class="card-right-title">
+            <strong>
+              <%= @information.title %>
+            </strong>
+          </div> <!-- card-right-title// -->
+          <div class="m-2">
+            <%= @information.message %>
+          </div> <!-- m-2// -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

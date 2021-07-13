@@ -29,3 +29,29 @@
 }
 
 // show page
+
+.information-wrap .col-md-8{
+  padding: 0px;
+}
+
+.card-right{
+  padding: 20px;
+}
+
+.card-right-title{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+}
+
+.card-right-message{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  height: 320px;
+  overflow: auto;
+}
+
+.informationShow-wrap{
+  border-bottom: 1px solid #e6e6e6;
+  margin: 40px;
+}
