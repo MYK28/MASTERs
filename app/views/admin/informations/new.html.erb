@@ -1,1 +1,36 @@
-<h4>新規連絡投稿画面</h4>
+<h6>新規連絡投稿画面</h6>
+<%= form_with model: @information, url: admin_informations_path, local:true do |f| %>
+<div class="container">
+  <div class="card-container">
+    <div class="card-body">
+      <%= f.attachment_field :image %>
+      <hr>
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+              <h6>Title</h6>
+            </div> <!-- input-group.// -->
+          </div> <!-- form-group// -->
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :title, class:"form-control" %>
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+          <div class="form-group">
+            <div class="input-group">
+                <h6>Message</h6>
+            </div> <!-- input-group.// -->
+          </div> <!-- form-group// -->
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_area :message, class:"form-control" %>
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+          <div class="form-group">
+            <%= f.submit '新規投稿', class:"btn btn-outline-secondary btn-block" %>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+<% end %>
