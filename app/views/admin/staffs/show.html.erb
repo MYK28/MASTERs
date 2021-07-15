@@ -1,1 +1,16 @@
 <h6>STAFF詳細画面</h6>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+            <%= image_tag('no_image1.jpg') %>
+            <h6><%= @staff.last_name %><%= @staff.first_name %></h6><br />
+            <h6><%= @staff.email %></h6>
+        </div>
+        <div class="col-lg-5">
+            <h4>チェック済一覧</h4>
+        </div>
+        <div class="col-lg-5">
+            <h4>未チェック一覧</h4>
+        </div>
+    </div>
+</div>

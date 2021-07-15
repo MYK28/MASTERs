@@ -7,6 +7,7 @@ class Admin::StaffsController < ApplicationController
 
   def show
     @staff = Staff.find(params[:id])
+    # @checks = @staff.checks.page(params[:page]).reverse_order
   end
 
   def edit
