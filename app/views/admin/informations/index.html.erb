@@ -1,2 +1,27 @@
-<h4>連絡投稿一覧画面</h4>
-
+<h6>連絡投稿一覧画面</h6>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">投稿日</th>
+            <th scope="col">投稿者</th>
+            <th scope="col">タイトル</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @informations.each do |information| %>
+          <tr>
+            <th scope="row"></th>
+            <td><%= information.created_at %></td>
+            <td><%= information.admin.name %></td>
+            <td><%= information.title %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
