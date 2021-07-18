@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :informations, only: [:index, :show] do
     resources :checks, only: [:create, :destroy]
+    resources :comments, only: [:show, :create, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -23,7 +24,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :informations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
       resources :checks, only: [:create, :destroy]
+      resources :comments, only: [:show, :create, :destroy]
     end
+
+    get '/comments' => 'comments#index'
 
     resources :staffs, only: [:index, :show, :edit, :update]
   end
