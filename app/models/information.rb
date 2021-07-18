@@ -1,6 +1,7 @@
 class Information < ApplicationRecord
   belongs_to :admin
   has_many :checks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   attachment :image
 

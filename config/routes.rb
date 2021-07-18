@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :informations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
       resources :checks, only: [:create, :destroy]
+      resources :comments, only: [:show, :create, :destroy]
     end
+
+    get '/comments' => 'comments#index'
 
     resources :staffs, only: [:index, :show, :edit, :update]
   end

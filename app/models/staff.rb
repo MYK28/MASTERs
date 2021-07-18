@@ -5,4 +5,5 @@ class Staff < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :checks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
