@@ -1,0 +1,20 @@
+<h6>連絡詳細画面</h6>
+<div class="col-md-10 col-md-offset-1 mx-auto informationShow-wrap">
+  <div class="row information-wrap">
+    <div class="col-md-6">
+      <div class="card-left">
+        <%= attachment_image_tag @information, :image, width: "80%" %>
+          <div class="card-right-message">
+            <div class="card-right-title">
+              <strong>
+                <%= @information.title %>
+              </strong>
+            </div>
+            <div class="m-t">
+                <%= @information.message %>
+            </div>
+          </div>
+      </div> <!-- card-left// -->
+    </div> <!-- col-md-6// -->
+  </div>
+</div>
