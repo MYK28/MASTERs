@@ -1,0 +1,7 @@
+<% if staff_signed_in? %> <!-- 1 -->
+  <% if current_staff.already_checked?(information) %> <!-- 2 -->
+    <%= link_to "チェック外す", information_checks_path(information), method: :post, remote: true, class:"btn btn-outline-secondary btn-block" %>
+  <% else %> <!-- 2 -->
+    <%= link_to "チェックをする", information_check_path(information), method: :delete, remote: true, class:"btn btn-dark btn-block" %>
+  <% end %> <!-- 2 -->
+<% end %> <!-- 1 -->

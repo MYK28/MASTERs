@@ -13,6 +13,9 @@
             <div class="m-t">
                 <%= @information.message %>
             </div>
+            <div id="show_check_<%= @information.id %>">
+              <%= render 'checks/check', information: @information %>
+            </div>
           </div> <!-- card-right-message -->
       </div> <!-- card-left// -->
     </div> <!-- col-md-6// -->
