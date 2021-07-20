@@ -3,7 +3,11 @@ class InformationsController < ApplicationController
   def index
     @informations = Information.all
   end
-
+  
+  def checked
+    @informations = Information.all
+  end
+  
   def show
     @information = Information.find(params[:id])
     @comment = Comment.new

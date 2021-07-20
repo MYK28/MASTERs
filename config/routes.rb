@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     delete 'check' => 'checks#destroy'
     resources :checks, only: [:create]
     resources :comments, only: [:show, :create, :destroy]
+    collection do
+      get 'checked'
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:show, :create, :destroy]
     end
 
-    get '/comments' => 'comments#index'
+    get 'comments' => 'comments#index'
 
     resources :staffs, only: [:index, :show, :edit, :update]
   end
