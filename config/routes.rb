@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
 
   resources :informations, only: [:index, :show] do
-    resources :checks, only: [:create, :destroy]
+    delete 'check' => 'checks#destroy'
+    resources :checks, only: [:create]
     resources :comments, only: [:show, :create, :destroy]
   end
 
