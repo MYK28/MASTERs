@@ -1,18 +1,29 @@
 class InformationsController < ApplicationController
 
   def index
-    @informations = Information.all
+    @informations = []
+    all_informations = Information.all
+    all_informations.each do |information|
+      unless information.checks.where(staff_id: current_staff.id).exists?
+        @informations.push(information)
+      end
+    end
   end
-  
+
   def checked
-    @informations = Information.all
+    @informations = []
+    all_informations = Information.all
+    all_informations.each do |information|
+      if information.checks.where(staff_id: current_staff.id).exists?
+        @informations.push(information)
+      end
+    end
   end
-  
+
   def show
     @information = Information.find(params[:id])
     @comment = Comment.new
     #新着順で表示
     @comments = @information.comments.order(created_at: :desc)
   end
-
 end
