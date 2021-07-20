@@ -1,1 +1,46 @@
 <h6>コメント詳細画面</h6>
+<div class="col-md-10 col-md-offset-1 mx-auto informationShow-wrap">
+  <div class="row information-wrap">
+    <div class="col-md-6">
+      <div class="card-left">
+        <%= attachment_image_tag @information, :image, width: "80%" %>
+          <div class="card-right-message">
+            <div class="card-right-title">
+              <strong>
+                <%= @information.title %>
+              </strong>
+            </div>
+            <div class="m-t">
+                <%= @information.message %>
+            </div>
+            <div id="show_check_<%= @information.id %>">
+              <%= render 'checks/check', information: @information %>
+            </div>
+          </div> <!-- card-right-message -->
+      </div> <!-- card-left// -->
+    </div> <!-- col-md-6// -->
+    <div class="col-md-6">
+        <ul>
+          <li class="comment-create">
+            <h6 class="text-left title">コメント</h6>
+          </li>
+          <li id="comments_area">
+            <%= render partial: 'comments/index', locals: {comments: @comments} %>
+          </li>
+        </ul>
+        <hr>
+        <% if staff_signed_in? %>
+          <div class="comment-create">
+            <h6 class="text-left">コメントを投稿する</h6>
+            <!--%= render partial: 'comments/form', locals: {comment: @comment, information: @information} %>-->
+            <%= form_with(model: [@information, @comment], url: information_comments_path(@information), remote: true) do |f| %>
+              <div class="form-group">
+                <%= f.text_area :comment, class:"form-control" %>
+              </div>
+              <%= f.submit "送信", class:"btn btn-dark comment-submit float-right" %>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
