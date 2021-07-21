@@ -2,7 +2,7 @@ class Admin::CommentsController < ApplicationController
 
   def index
     @staff = Staff.all
-    @staff.comment
+   
   end
 
   def show
