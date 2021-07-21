@@ -16,7 +16,15 @@
             <div id="show_check_<%= @information.id %>">
               <%= render 'checks/check', information: @information %>
             </div>
+            <div class="m-t">
+              <% if @information.bookmarked_by?(current_staff) %>
+              <p><%= link_to "ブックマークを外す", information_bookmark_path(@information), method: :delete, class:"btn btn-outline-secondary btn-block" %></p>
+              <% else %>
+              <p><%= link_to "ブックマーク", information_bookmarks_path(@information), method: :post, class:"btn btn-dark btn-block" %></p>
+              <% end %>
+            </div>
           </div> <!-- card-right-message -->
+
       </div> <!-- card-left// -->
     </div> <!-- col-md-6// -->
     <div class="col-md-6">
