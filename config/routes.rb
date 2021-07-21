@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :informations, only: [:index, :show] do
     delete 'check' => 'checks#destroy'
     resources :checks, only: [:create]
+    resources :bookmarks, only: [:index, :create, :destroy]
     resources :comments, only: [:show, :create, :destroy]
     collection do
       get 'checked'
