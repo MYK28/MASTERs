@@ -16,7 +16,7 @@
             <div id="show_check_<%= @information.id %>">
               <%= render 'checks/check', information: @information %>
             </div>
-            <div class="m-t">
+            <div class="mt-3">
               <% if @information.bookmarked_by?(current_staff) %>
               <p><%= link_to "ブックマークを外す", information_bookmark_path(@information), method: :delete, class:"btn btn-outline-secondary btn-block" %></p>
               <% else %>
