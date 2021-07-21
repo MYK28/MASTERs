@@ -15,7 +15,8 @@ class BookmarksController < ApplicationController
     @information = Information.find(params[:information_id])
     bookmark = @information.bookmarks.find_by(staff_id: current_staff.id)
     if bookmark.present?
-      bookmark.save
+      bookmark.destroy
+      # bookmark.save
       redirect_to request.referer
     else
       redirect_to request.referer
