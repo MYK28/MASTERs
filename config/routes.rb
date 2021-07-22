@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :informations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :checks, only: [:destroy]
+      collection do
+        get 'commented'
+      end
     end
 
     resources :comments, only: [:show, :create, :destroy, :index] do
