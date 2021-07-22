@@ -22,6 +22,10 @@ class Admin::InformationsController < ApplicationController
   def show
     @information = Information.find(params[:id])
   end
+  
+  def commented
+    @comments = Comment.where(is_reply: true)
+  end
 
   def edit
     @information = Information.find(params[:id])

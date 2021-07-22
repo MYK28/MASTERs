@@ -1,0 +1,29 @@
+<h6>コメント済み一覧</h6>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">投稿日</th>
+            <th scope="col">スタッフ</th>
+            <th scope="col">コメント</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @comments.each do |comment| %>
+          <tr>
+            <th scope="row"></th>
+            <td><%= comment.created_at %></td>
+            <td><%= comment.staff.last_name %><%= comment.staff.first_name %></td>
+            <td><%= comment.comment %></td>
+            <td><%= link_to "詳細", admin_comment_path(comment.id), class:"btn btn-dark" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
