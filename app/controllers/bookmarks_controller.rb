@@ -1,6 +1,10 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_staff!
 
+  def index
+    @bookmarks = Bookmark.where(staff_id: current_staff.id)
+  end
+
   def create
     @information = Information.find(params[:information_id])
     bookmark = @information.bookmarks.new(staff_id: current_staff.id)

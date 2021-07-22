@@ -1,0 +1,29 @@
+<h6>ブックマーク一覧画面</h6>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">タイトル</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bookmarks.each do |bookmark| %>
+          <tr>
+            <th scope="row"></th>
+            <td><%= bookmark.information.title %></td>
+            <td><%#= bookmark.admin.name %></td>
+            <td><%#= bookmark.title %></td>
+            <td><%#= link_to "詳細", information_path(information.id), class:"btn btn-dark" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
