@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get 'checked'
     end
   end
-  
+
   get 'bookmarks' => 'bookmarks#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :informations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :checks, only: [:create, :destroy]
+      resources :checks, only: [:destroy]
     end
 
     resources :comments, only: [:show, :create, :destroy, :index] do
