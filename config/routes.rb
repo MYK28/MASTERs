@@ -17,12 +17,14 @@ Rails.application.routes.draw do
   resources :informations, only: [:index, :show] do
     delete 'check' => 'checks#destroy'
     resources :checks, only: [:create]
-    resources :bookmarks, only: [:index, :create, :destroy]
+    resources :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:show, :create, :destroy]
     collection do
       get 'checked'
     end
   end
+  
+  get 'bookmarks' => 'bookmarks#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
