@@ -30,6 +30,7 @@ class Admin::InformationsController < ApplicationController
   def update
     @information = Information.find(params[:id])
     if @information.update(information_params)
+      @information.checks.delete_all
       redirect_to admin_information_path(@information.id)
     else
       render :edit
