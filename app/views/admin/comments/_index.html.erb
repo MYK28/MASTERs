@@ -1,12 +1,5 @@
-  <!-- コメント内容(2件) ------------>
-  <ul>
-    <li class="comment-create">
-      <h6 class="text-left title">コメント</h6>
-    </li>
-    <li>
-  <%= comments.count %>件コメント
+<%= comments.count %>件コメント
   <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
-  </li>
   <% comments.first(2).each do |comment| %> <!-- 1 -->
     <% unless comment.id.nil? %> <!-- 2 -->
       <li class="comment-container">
@@ -19,11 +12,7 @@
           </div>
           <div class="comment-entry">
             <%= comment.comment %>
-            <% if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
-              <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 4 -->
-                <i class="fas fa-trash" style="color: black;">1</i>
-              <% end %> <!-- 4 -->
-            <% end %> <!-- 3 -->
+            <%# 管理者がコメントを削除するためのコントローラのアクションを呼び出す %>
           </div>
           <span class="comment-date pull-right">
             <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
@@ -37,9 +26,8 @@
       </li>
     <% end %> <!-- 2 -->
   <% end %> <!-- 1 -->
-  </ul>
   <!-- コメント内容(3件目以降) ------------>
-  <ul class="collapse" id="collapseExample">
+  <div class="collapse" id="collapseExample">
     <% comments.offset(2).each do |comment| %> <!-- 5 -->
       <% unless comment.id.nil? %> <!-- 6 -->
         <li class="comment-container">
@@ -51,11 +39,7 @@
               <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
               <div class="comment-entry">
                 <%= comment.comment %>
-                <%# if comment.staff == current_staff || comment.admin == current_admin %> <!-- 7 -->
-                  <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 8 -->
-                    <i class="fas fa-trash" style="color: black;">2</i>
-                  <% end %> <!-- 8 -->
-                <%# end %> <!-- 7 -->
+                <%# 管理者がコメントを削除するためのコントローラのアクションを呼び出す %>
               </div>
               <span>
                 <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
@@ -66,8 +50,8 @@
           <div class="comment-text">
           <%= reply.reply %>
           </div>
-        <% end %>
+          <% end %>
         </li>
       <% end %> <!-- 6 -->
     <% end %> <!-- 5 -->
-  </ul>
+  </div>

@@ -11,8 +11,7 @@
       <div class="h-full flex items-center border-gray-200 border p-4 rounded-1g">
         <div class="flex-grow">
           <h6 class="text-gray-900 title-font font-medium"><%= staff.last_name %><%= staff.first_name %></h6>
-          <%= link_to "詳細", admin_staff_path(staff.id), class:"btn btn-dark float-right"%>
-          <!--<p class="text-gray-500"></p>--> <!--補足で付け足したい場合使用する-->
+          <%= link_to "詳細", admin_staff_path(staff.id), class:"btn btn-dark float-right clearfix"%>
         </div>
       </div>
     </div>

@@ -13,13 +13,13 @@
           </tr>
         </thead>
         <tbody>
-          <% @staff.each do |staff| %>
+          <% @comments.each do |comment| %>
           <tr>
             <th scope="row"></th>
-            <td><%= staff.created_at %></td>
-            <td><%= staff.last_name %><%= staff.first_name %></td>
-            <td><%#= staff.comment %></td>
-            <td><%#= link_to "詳細", admin_information_comment_path(staff.information_id, staff.comment_id), class:"btn btn-dark" %></td>
+            <td><%= comment.created_at %></td>
+            <td><%= comment.staff.last_name %><%= comment.staff.first_name %></td>
+            <td><%= comment.comment %></td>
+            <td><%= link_to "詳細", admin_comment_path(comment.id), class:"btn btn-dark" %></td>
           </tr>
           <% end %>
         </tbody>
