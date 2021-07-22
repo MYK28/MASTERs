@@ -27,14 +27,9 @@
       </div> <!-- card-left// -->
     </div> <!-- col-md-6// -->
     <div class="col-md-6">
-        <ul>
-          <li class="comment-create">
-            <h6 class="text-left title">コメント</h6>
-          </li>
-          <li id="comments_area">
+        <div id="comments_area">
             <%= render partial: 'comments/index', locals: {comments: @comments} %>
-          </li>
-        </ul>
+        </div>
         <hr>
         <% if staff_signed_in? %>
           <div class="comment-create">

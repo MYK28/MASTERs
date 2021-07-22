@@ -1,24 +1,26 @@
 class Admin::CommentsController < ApplicationController
 
   def index
-    @staff = Staff.all
+    @comments = Comment.where(is_reply: false)
   end
 
   def show
-    @information = Information.find(params[:information_id])
-    @comment = Comment.new
+    @comment = Comment.find(params[:id])
+    @information = @comment.information
+    @reply = @comment.replies.new
+
     #新着順で表示
-    @comments = @information.comments.order(created_at: :desc)
+    @staff_comments = @information.comments.where(staff_id: @comment.staff_id)
   end
 
   def create
-    @information = Information.find(params[:information_id])
+    @information = Information.find(params[:comment][:information_id])
+
     #連絡に紐付いたコメントを作成
     @comment = @information.comments.build(comment_params)
     @comment.admin_id = current_admin.id
-    @comment.staff_id = @information.staff_id
     @comment.save
-    render :index
+    redirect_to admin_comment_path(@comment)
   end
 
   def destroy
