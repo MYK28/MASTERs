@@ -6,4 +6,12 @@ class Staff < ApplicationRecord
 
   has_many :checks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
+
+  #既にチェックしているかどうか
+  def already_checked?(information)
+    self.checks.exists?(information_id: information.id)
+  end
+
 end

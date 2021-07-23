@@ -1,4 +1,4 @@
-<h6>コメント一覧(未返信)</h6>
+<h6>ブックマーク一覧画面</h6>
 <div class="container">
   <div class="row">
     <div class="col-md-10 mx-auto">
@@ -6,20 +6,20 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col"></th>
+            <th scope="col">タイトル</th>
             <th scope="col">投稿日</th>
-            <th scope="col">スタッフ</th>
-            <th scope="col">コメント</th>
+            <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <% @comments.each do |comment| %>
+          <% @bookmarks.each do |bookmark| %>
           <tr>
             <th scope="row"></th>
-            <td><%= comment.created_at %></td>
-            <td><%= comment.staff.last_name %><%= comment.staff.first_name %></td>
-            <td><%= comment.comment %></td>
-            <td><%= link_to "詳細", admin_comment_path(comment.id), class:"btn btn-dark" %></td>
+            <td><%= bookmark.information.title %></td>
+            <td><%= bookmark.information.created_at %></td>
+            <td><%#= bookmark.title %></td>
+            <td><%= link_to "詳細", information_path(bookmark.information.id), class:"btn btn-dark" %></td>
           </tr>
           <% end %>
         </tbody>

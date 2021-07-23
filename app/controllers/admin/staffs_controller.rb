@@ -7,7 +7,9 @@ class Admin::StaffsController < ApplicationController
 
   def show
     @staff = Staff.find(params[:id])
-    # @checks = @staff.checks.page(params[:page]).reverse_order
+    @info_ids = @staff.checks.pluck(:information_id)
+    @info_checked = Information.where(id: @info_ids)
+    @info_unchecked = Information.where.not(id: @info_ids)
   end
 
   def edit

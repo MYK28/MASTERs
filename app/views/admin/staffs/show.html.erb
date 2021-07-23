@@ -8,9 +8,15 @@
         </div>
         <div class="col-lg-5">
             <h4>チェック済一覧</h4>
+            <% @info_checked.each do |information| %>
+            <%= information.title %>
+            <% end %>
         </div>
         <div class="col-lg-5">
             <h4>未チェック一覧</h4>
+            <% @info_unchecked.each do |information| %>
+            <%= information.title %>
+            <% end %>
         </div>
     </div>
 </div>

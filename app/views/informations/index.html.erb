@@ -9,6 +9,7 @@
             <th scope="col">投稿日</th>
             <th scope="col">投稿者</th>
             <th scope="col">タイトル</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
             <td><%= information.created_at %></td>
             <td><%= information.admin.name %></td>
             <td><%= information.title %></td>
+            <td><%= link_to "詳細", information_path(information.id), class:"btn btn-dark" %></td>
           </tr>
           <% end %>
         </tbody>
