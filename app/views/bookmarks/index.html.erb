@@ -19,7 +19,7 @@
             <td><%= bookmark.information.title %></td>
             <td><%= bookmark.information.created_at %></td>
             <td><%#= bookmark.title %></td>
-            <td><%= link_to "詳細", information_path(bookmarkinformation.id), class:"btn btn-dark" %></td>
+            <td><%= link_to "詳細", information_path(bookmark.information.id), class:"btn btn-dark" %></td>
           </tr>
           <% end %>
         </tbody>
