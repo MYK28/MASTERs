@@ -1,0 +1,7 @@
+<% if staff_signed_in? %> <!-- 1 -->
+  <% if information.bookmarked_by?(information) %> <!-- 2 -->
+    <%= link_to "お気に入りを外す", information_bookmark_path(information), method: :delete, remote: true, class:"btn btn-outline-secondary btn-block" %>
+  <% else %> <!-- 2 -->
+    <%= link_to "お気に入り", information_bookmarks_path(information), method: :post, remote: true, class:"btn btn-dark btn-block" %>
+  <% end %> <!-- 2 -->
+<% end %> <!-- 1 -->
