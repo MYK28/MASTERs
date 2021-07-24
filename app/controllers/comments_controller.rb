@@ -7,6 +7,10 @@ class CommentsController < ApplicationController
     @comment.staff_id = current_staff.id
     @comment.admin_id = @information.admin_id
     @comment.save
+    @comments = @information.comments.order(created_at: :desc)
+    if current_staff
+       @comments = @comments.where(:staff_id => current_staff.id)
+    end
     render :index
   end
 
