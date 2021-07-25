@@ -21,6 +21,11 @@
         <% comment.replies.each do |reply| %>
         <div class="comment-text">
           <%= reply.reply %>
+          <% if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
+            <%= link_to admin_comment_reply_path(reply.comment_id, reply.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 4 -->
+              <i class="fas fa-trash-alt" style="color: black;"></i>
+            <% end %> <!-- 4 -->
+          <% end %> <!-- 3 -->
         </div>
         <% end %>
       </li>
@@ -49,6 +54,11 @@
           <% comment.replies.each do |reply| %>
           <div class="comment-text">
           <%= reply.reply %>
+          <% if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
+            <%= link_to admin_comment_reply_path(reply.comment.id, reply.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 4 -->
+              <i class="fas fa-trash-alt" style="color: black;"></i>
+            <% end %> <!-- 4 -->
+          <% end %> <!-- 3 -->
           </div>
           <% end %>
         </li>
