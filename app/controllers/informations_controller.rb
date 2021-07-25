@@ -2,7 +2,7 @@ class InformationsController < ApplicationController
 
   def index
     @informations = []
-    all_informations = Information.all
+    all_informations = Information.all.page(params[:page]).per(6)
     all_informations.each do |information|
       unless information.checks.where(staff_id: current_staff.id).exists?
         @informations.push(information)
@@ -12,7 +12,7 @@ class InformationsController < ApplicationController
 
   def checked
     @informations = []
-    all_informations = Information.all
+    all_informations = Information.all.page(params[:page]).per(6)
     all_informations.each do |information|
       if information.checks.where(staff_id: current_staff.id).exists?
         @informations.push(information)
