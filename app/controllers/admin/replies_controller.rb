@@ -4,7 +4,9 @@ class Admin::RepliesController < ApplicationController
     reply = Reply.new(reply_params)
     if reply.save
       comment = Comment.find(params[:reply][:comment_id])
-      comment.is_reply = true
+      #comment.is_reply = true
+      Comment.where(:admin_id => comment.admin_id, :staff_id => comment.staff_id, :information_id => comment.information_id)
+             .update_all(:is_reply => true)
       comment.save
     end
     redirect_back(fallback_location: root_path)
