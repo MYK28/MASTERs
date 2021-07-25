@@ -8,7 +8,7 @@
      <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
     </li>
   <% comments.first(2).each do |comment| %> <!-- 1 -->
-    
+
     <% unless comment.id.nil? %> <!-- 2 -->
       <li class="comment-container">
         <div class="comment-box">
