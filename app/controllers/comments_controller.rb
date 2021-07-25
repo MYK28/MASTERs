@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    @comments = @comment.information.comments
+    @comments = Comment.where(information_id: @comment.information.id).where(staff_id: current_staff.id)
     render :index
   end
 
