@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_staff!
 
   def index
-    @bookmarks = Bookmark.where(staff_id: current_staff.id)
+    @bookmarks = Bookmark.where(staff_id: current_staff.id).page(params[:page]).per(6)
   end
 
   def create
