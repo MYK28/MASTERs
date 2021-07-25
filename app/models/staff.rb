@@ -13,5 +13,12 @@ class Staff < ApplicationRecord
   def already_checked?(information)
     self.checks.exists?(information_id: information.id)
   end
-
+  
+  def self.search(search) #self.はStudent.を意味する
+     if search
+       where(['last_name LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%"]) #検索とnameとschoolの部分一致を表示。
+     else  
+       all #全て表示させる
+     end
+  end
 end
