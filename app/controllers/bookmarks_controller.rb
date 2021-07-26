@@ -2,7 +2,8 @@ class BookmarksController < ApplicationController
   before_action :authenticate_staff!
 
   def index
-    @bookmarks = Bookmark.where(staff_id: current_staff.id).page(params[:page]).per(6)
+    bookmarks = Bookmark.where(staff_id: current_staff.id)
+    @bookmarks = Kaminari.paginate_array(bookmarks).page(params[:page]).per(2)
   end
 
   def create

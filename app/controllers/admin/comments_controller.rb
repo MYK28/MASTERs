@@ -1,7 +1,7 @@
 class Admin::CommentsController < ApplicationController
 
   def index
-    @comments = Comment.where(is_reply: false)
+    @comments = Comment.where(is_reply: false).page(params[:page]).per(6)
   end
 
   def show
