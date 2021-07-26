@@ -18,7 +18,7 @@
             <%= @information.message %>
           </div> <!-- m-2// -->
           <div class="m-2">
-              <p><%= link_to "削除する", admin_information_path(@information), method: :delete, class:"btn btn-outline-secondary btn-block" %></p>
+              <p><%= link_to "削除する", admin_information_path(@information), method: :delete, data: { confirm: "本当に投稿を削除しますか？" }, class:"btn btn-outline-secondary btn-block" %></p>
               <p><%= link_to "編集する", edit_admin_information_path(@information), class:"btn btn-outline-secondary btn-block" %></p>
               <p><%= link_to "コメント済み一覧", commented_admin_informations_path(@information), class:"btn btn-outline-secondary btn-block" %></p>
           </div>

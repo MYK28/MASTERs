@@ -1,23 +1,28 @@
 class InformationsController < ApplicationController
 
   def index
-    @informations = []
+    informations = []
     all_informations = Information.all
     all_informations.each do |information|
       unless information.checks.where(staff_id: current_staff.id).exists?
-        @informations.push(information)
+        informations.push(information)
       end
     end
+    # @informations = informations.page(params[:page]).per(6)
+    @informations = Kaminari.paginate_array(informations).page(params[:page]).per(2)
+
   end
 
   def checked
-    @informations = []
+    informations = []
     all_informations = Information.all
     all_informations.each do |information|
       if information.checks.where(staff_id: current_staff.id).exists?
-        @informations.push(information)
+        informations.push(information)
       end
     end
+    # @informations = informations.page(params[:page]).per(6)
+    @informations = Kaminari.paginate_array(informations).page(params[:page]).per(2)
   end
 
   def show
