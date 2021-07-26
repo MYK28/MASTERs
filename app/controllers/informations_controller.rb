@@ -9,7 +9,7 @@ class InformationsController < ApplicationController
       end
     end
     # @informations = informations.page(params[:page]).per(6)
-    @informations = Kaminari.paginate_array(informations).page(params[:page]).per(2)
+    @informations = Kaminari.paginate_array(informations).page(params[:page]).per(6)
 
   end
 
@@ -22,7 +22,7 @@ class InformationsController < ApplicationController
       end
     end
     # @informations = informations.page(params[:page]).per(6)
-    @informations = Kaminari.paginate_array(informations).page(params[:page]).per(2)
+    @informations = Kaminari.paginate_array(informations).page(params[:page]).per(6)
   end
 
   def show
