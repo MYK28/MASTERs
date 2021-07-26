@@ -2,7 +2,7 @@
   <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
   <% comments.first(2).each do |comment| %> <!-- 1 -->
     <% unless comment.id.nil? %> <!-- 2 -->
-      <li class="comment-container list-style">
+      <li class="comment-container list-unstyled">
         <div class="comment-box">
           <div class="comment-avatar">
             <%= attachment_image_tag comment.staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
