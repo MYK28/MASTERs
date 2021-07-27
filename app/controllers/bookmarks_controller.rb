@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
 
   def index
     bookmarks = Bookmark.where(staff_id: current_staff.id)
-    @bookmarks = Kaminari.paginate_array(bookmarks).page(params[:page]).per(2)
+    @bookmarks = Kaminari.paginate_array(bookmarks).page(params[:page]).per(6)
   end
 
   def create

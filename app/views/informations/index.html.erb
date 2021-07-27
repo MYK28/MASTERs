@@ -1,4 +1,10 @@
-<h6>連絡一覧画面(未チェック)</h6>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text3x1 text-2x1 font-medium title-font mt-4 mb-4 text-gray-900">Un Checked</h1>
+    </div>
+  </div>
+</section>
 <div class="container">
   <div class="row">
     <div class="col-md-10 mx-auto">
@@ -7,6 +13,7 @@
           <tr>
             <th scope="col"></th>
             <th scope="col">投稿日</th>
+            <th scope="col"></th>
             <th scope="col">投稿者</th>
             <th scope="col">タイトル</th>
             <th scope="col"></th>
@@ -17,14 +24,15 @@
           <tr>
             <th scope="row"></th>
             <td><%= information.created_at %></td>
+            <td><%= attachment_image_tag information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
             <td><%= information.admin.name %></td>
             <td><%= information.title %></td>
             <td><%= link_to "詳細", information_path(information.id), class:"btn btn-dark" %></td>
           </tr>
           <% end %>
-          <%= paginate @informations %>
         </tbody>
       </table>
+      <%= paginate @informations %>
     </div>
   </div>
 </div>

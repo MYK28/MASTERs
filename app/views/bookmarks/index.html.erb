@@ -6,6 +6,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col">タイトル</th>
             <th scope="col">投稿日</th>
             <th scope="col"></th>
@@ -16,15 +17,16 @@
           <% @bookmarks.each do |bookmark| %>
           <tr>
             <th scope="row"></th>
+            <td><%= attachment_image_tag bookmark.information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
             <td><%= bookmark.information.title %></td>
             <td><%= bookmark.information.created_at %></td>
-            <td><%#= bookmark.title %></td>
+            <td></td>
             <td><%= link_to "詳細", information_path(bookmark.information.id), class:"btn btn-dark" %></td>
           </tr>
           <% end %>
-          <%= paginate @bookmarks %>
         </tbody>
       </table>
+      <%= paginate @bookmarks %>
     </div>
   </div>
 </div>
