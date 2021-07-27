@@ -1,10 +1,10 @@
-<h6>新規連絡投稿画面</h6>
 <%= form_with model: @information, url: admin_informations_path, local:true do |f| %>
 <div class="container">
   <div class="card-container">
     <div class="card-body">
+      <h5 class="card-title text-center mb-2">新規連絡作成</h5>
+      <hr class="mb-5">
       <%= f.attachment_field :image %>
-      <hr>
       <form>
         <div class="form-group">
           <div class="input-group">
@@ -27,7 +27,7 @@
           </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
           <div class="form-group">
-            <%= f.submit '新規投稿', class:"btn btn-outline-secondary btn-block" %>
+            <%= f.submit '投稿', class:"btn btn-outline-secondary btn-block" %>
           </div>
       </form>
     </div>
