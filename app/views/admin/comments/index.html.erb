@@ -18,7 +18,7 @@
           <tr>
             <th scope="row"></th>
             <td><%= comment.created_at %></td>
-            <td><%= attachment_image_tag comment.staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
+            <td><%= attachment_image_tag comment.information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
             <td><%= comment.staff.last_name %><%= comment.staff.first_name %></td>
             <td><%= comment.comment %></td>
             <td><%= link_to "詳細", admin_comment_path(comment.id), class:"btn btn-dark" %></td>
