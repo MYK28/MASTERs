@@ -12,10 +12,10 @@ class Admin::StaffsController < ApplicationController
     @info_unchecked = Information.where.not(id: @info_ids)
   end
 
-  def edit
-  end
-
   def update
+    @staff = Staff.find(params[:id])
+    @staff.update(is_deleted: true)
+    redirect_to admin_staff_path(@staff)
   end
 
 end

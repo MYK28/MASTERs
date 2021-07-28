@@ -39,6 +39,6 @@ Rails.application.routes.draw do
         resources :replies, only: [:create, :destroy]
       end
 
-    resources :staffs, only: [:index, :show, :edit, :update]
+    resources :staffs, only: [:index, :show, :update]
   end
 end

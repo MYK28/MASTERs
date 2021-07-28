@@ -37,6 +37,7 @@ class DeviseCreateStaffs < ActiveRecord::Migration[5.2]
       t.string :last_name_kana, null: false
       t.string :first_name_kana, null: false
       t.string :profile_image_id
+      t.boolean :is_deleted, default: false, null: false
 
       t.timestamps null: false
     end

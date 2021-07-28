@@ -13,7 +13,7 @@ class Staff < ApplicationRecord
   def already_checked?(information)
     self.checks.exists?(information_id: information.id)
   end
-
+  
   def self.search(search) #self.はstaffを意味する
      if search
        where(['last_name LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%"]) #検索とlast_nameとfirst_nameの部分一致を表示。
