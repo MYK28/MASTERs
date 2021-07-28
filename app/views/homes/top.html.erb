@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>背景画像の挿入</title>
-    <link rel="stylesheet" href="home.scss">
-</head>
-<body id="top">
-  <h6>top page</h6>
-</body>
-</html>
+<div class="container">
+  <div class="row mt-5">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1 class="mb-3 mx-auto col-11 col-sm-10 col-lg-8 col-xl-6"><strong>MASTERs</strong></h1>
+      <p class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-8">You can check and manage information</p>
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row">
+          <%= link_to 'LOG IN', new_staff_session_path, class:"btn btn-dark btn-block mt-5 mb-3 sign_in" %>
+        </div>
+        <div class="row mt-3">
+          <%= link_to 'SIGN UP', new_staff_registration_path, class:"btn btn-dark btn-block mb-3 sign_in"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
