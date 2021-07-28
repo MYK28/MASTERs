@@ -18,4 +18,9 @@ class Admin::StaffsController < ApplicationController
     redirect_to admin_staff_path(@staff)
   end
 
+  def destroy
+    @staff = Staff.find(params[:id])
+    @staff.update(is_deleted: false)
+    redirect_to admin_staff_path(@staff)
+  end
 end

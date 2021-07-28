@@ -4,8 +4,11 @@
             <%= attachment_image_tag @staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image mt-5", size: "60x60" %>
             <h6><%= @staff.last_name %><%= @staff.first_name %></h6><br />
             <h6><%= @staff.email %></h6>
+            <% if @staff.is_deleted? %> <!-- 既にデータがあるためis_deletedでtrue, falseを呼び出すことができる -->
+            <p class="mt-5"><%= link_to "退会を外す", admin_staff_path(@staff), method: :delete, data: { confirm: "スタッフの退会を解除しますか？" }, class:"btn btn-dark btn-block" %></p>
+            <% else %>
             <p class="mt-5"><%= link_to "退会", admin_staff_path(@staff), method: :patch, data: { confirm: "本当にスタッフを削除しますか？" }, class:"btn btn-outline-secondary btn-block" %></p>
-            <p class="mt-5"><%= link_to "退会を外す", admin_staff_path(@staff), method: :patch, data: { confirm: "本当にスタッフを削除しますか？" }, class:"btn btn-dark btn-block" %></p>
+            <% end %>
         </div>
         <div class="col-lg-5">
             <h6 class="text-center text-dark bg-light p-1 mb-5 mt-5">チェック済一覧</h6>
