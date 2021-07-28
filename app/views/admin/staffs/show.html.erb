@@ -1,22 +1,53 @@
-<h6>STAFF詳細画面</h6>
 <div class="container">
     <div class="row">
         <div class="col-lg-2">
-            <%= image_tag('no_image1.jpg') %>
+            <%= attachment_image_tag @staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image mt-5", size: "60x60" %>
             <h6><%= @staff.last_name %><%= @staff.first_name %></h6><br />
             <h6><%= @staff.email %></h6>
+            <p class="mt-5"><%= link_to "退会", admin_staff_path(@staff), method: :patch, data: { confirm: "本当にスタッフを削除しますか？" }, class:"btn btn-outline-secondary btn-block" %></p>
+            <p class="mt-5"><%= link_to "退会を外す", admin_staff_path(@staff), method: :patch, data: { confirm: "本当にスタッフを削除しますか？" }, class:"btn btn-dark btn-block" %></p>
         </div>
         <div class="col-lg-5">
-            <h4>チェック済一覧</h4>
-            <% @info_checked.each do |information| %>
-            <%= information.title %>
-            <% end %>
+            <h6 class="text-center text-dark bg-light p-1 mb-5 mt-5">チェック済一覧</h6>
+            <table class="table">
+                <thead class="thead-dark">
+                   <tr>
+                       <th scope="col"></th>
+                       <th scope="col"></th>
+                       <th scope="col">タイトル</th>
+                   </tr>
+                </thead>
+                <tbody>
+                  <% @info_checked.each do |information| %>
+                    <tr>
+                        <th scope="row"></th>
+                        <td><%= attachment_image_tag information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
+                        <td><%= information.title %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
         </div>
         <div class="col-lg-5">
-            <h4>未チェック一覧</h4>
-            <% @info_unchecked.each do |information| %>
-            <%= information.title %>
-            <% end %>
+            <h6 class="text-center text-dark bg-light p-1 mb-5 mt-5">未チェック一覧</h6>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col">タイトル</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @info_unchecked.each do |information| %>
+                  <tr>
+                    <th scope="col"></th>
+                    <td><%= attachment_image_tag information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
+                    <td><%= information.title %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
         </div>
     </div>
 </div>
