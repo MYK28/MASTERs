@@ -5,7 +5,7 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def after_sign_up_path_for(resource)
-    root_path
+    informations_path
   end
 
   def after_update_path_for(resource)
