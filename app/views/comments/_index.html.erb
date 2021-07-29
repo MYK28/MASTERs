@@ -12,7 +12,7 @@
       <li class="container list-unstyled">
         <div class="row">
           <div class="col-3">
-            <%= attachment_image_tag comment.staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
+            <%= attachment_image_tag comment.staff, :profile_image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
             <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
           </div>
           <div class="col-4">
@@ -43,7 +43,7 @@
         <li class="container list-unstyled">
           <div class="row">
             <div class="col-3">
-              <%= attachment_image_tag comment.staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
+              <%= attachment_image_tag comment.staff, :profile_image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
               <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
             </div>
             <div class="col-4">
