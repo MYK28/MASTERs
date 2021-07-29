@@ -1,4 +1,3 @@
-<h6>コメント詳細画面</h6>
 <div class="col-md-10 col-md-offset-1 mx-auto informationShow-wrap">
   <div class="row information-wrap">
     <div class="col-md-6">
@@ -35,7 +34,6 @@
         <% if admin_signed_in? %>
           <div class="comment-create">
             <h6 class="text-left">コメントを投稿する</h6>
-            <!--%= render partial: 'comments/form', locals: {comment: @comment, information: @information} %>-->
             <%= form_with(model: @reply, url: admin_comment_replies_path(@comment), method: :post, remote: true) do |f| %>
               <div class="form-group">
                 <%= f.text_area :reply, class:"form-control" %>
