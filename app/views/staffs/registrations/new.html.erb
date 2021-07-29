@@ -26,11 +26,6 @@
         <td style="border:none;"><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %></td>
       </tr>
       <tr>
-        <th style="border:none;"><%= f.label :プロフィール画像 %></th>
-        <td style="border:none;"></td>
-        <!--<td style="border:none;"><%#= f.attachment_field :profile_image %></td>-->
-      </tr>
-      <tr>
         <th style="border:none;">
           <%= f.label :パスワード %>
           <% if @minimum_password_length %>
