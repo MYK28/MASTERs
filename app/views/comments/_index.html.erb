@@ -14,18 +14,25 @@
           <div class="col-3">
             <%= attachment_image_tag comment.staff, :profile_image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
             <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
+            <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
           </div>
-          <div class="col-4">
+          <div class="col-8">
             <%= comment.comment %>
-            <% if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
+            <%# if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
+              <%#= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 4 -->
+                <!--<i class="fas fa-trash-alt" style="color: black;"></i>-->
+              <%# end %> <!-- 4 -->
+            <%# end %> <!-- 3 -->
+          </div>
+          <div class="col-1">
+          <% if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
               <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 4 -->
                 <i class="fas fa-trash-alt" style="color: black;"></i>
               <% end %> <!-- 4 -->
             <% end %> <!-- 3 -->
-          </div>
-          <span class="col-3 pull-right">
-            <%= comment.created_at.strftime('%Y/%m/%d') %>
-          </span>
+          <!--<span class="col-3 pull-right">-->
+          <!--  <%#= comment.created_at.strftime('%Y/%m/%d') %>-->
+          <!--</span>-->
         </div>
         <% comment.replies.each do |reply| %>
           <div class="comment-text">
@@ -45,18 +52,24 @@
             <div class="col-3">
               <%= attachment_image_tag comment.staff, :profile_image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
               <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
+              <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
             </div>
-            <div class="col-4">
+            <div class="col-8">
               <%= comment.comment %>
                 <%# if comment.staff == current_staff || comment.admin == current_admin %> <!-- 7 -->
-                  <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %>
-                   <i class="fas fa-trash-alt" style="color: black;"></i>
-                  <% end %>
+                  <%#= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %>
+                   <!--<i class="fas fa-trash-alt" style="color: black;"></i>-->
+                  <%# end %>
                 <%# end %> <!-- 7 -->
             </div>
-            <span class="col-3 pull-right">
-              <%= comment.created_at.strftime('%Y/%m/%d') %>
-            </span>
+            <div class="col-1">
+              <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %>
+                <i class="fas fa-trash-alt" style="color: black;"></i>
+              <% end %>
+            </div>
+            <!--<span class="col-3 pull-right">-->
+            <!--  <%#= comment.created_at.strftime('%Y/%m/%d') %>-->
+            <!--</span>-->
           </div>
           <% comment.replies.each do |reply| %>
           <div class="comment-text">
