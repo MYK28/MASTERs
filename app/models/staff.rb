@@ -8,6 +8,7 @@ class Staff < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
+  attachment :profile_image
 
   #退会したスタッフを弾く
   def active_for_authentication?

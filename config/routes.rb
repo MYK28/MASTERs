@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+  #staffフォルダの中のstaffコントローラーを呼び出すためのルーティング
+   scope module: :staff do
+     resources :staffs, only: [:show, :edit, :update]
+   end
+
   resources :informations, only: [:index, :show] do
     delete 'check' => 'checks#destroy'
     resources :checks, only: [:create]
