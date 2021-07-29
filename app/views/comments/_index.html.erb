@@ -8,17 +8,14 @@
      <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
     </li>
   <% comments.first(2).each do |comment| %> <!-- 1 -->
-
     <% unless comment.id.nil? %> <!-- 2 -->
-      <li class="comment-container list-unstyled">
-        <div class="comment-box">
-          <div class="comment-avatar">
+      <li class="container list-unstyled">
+        <div class="row">
+          <div class="col-3">
             <%= attachment_image_tag comment.staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
-          </div>
-          <div class="comment-text">
             <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
           </div>
-          <div class="comment-entry">
+          <div class="col-4">
             <%= comment.comment %>
             <% if comment.staff == current_staff || comment.admin == current_admin %> <!-- 3 -->
               <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 4 -->
@@ -26,8 +23,8 @@
               <% end %> <!-- 4 -->
             <% end %> <!-- 3 -->
           </div>
-          <span class="comment-date pull-right">
-            <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          <span class="col-3 pull-right">
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
           </span>
         </div>
         <% comment.replies.each do |reply| %>
@@ -43,25 +40,23 @@
   <ul class="collapse" id="collapseExample">
     <% comments.offset(2).each do |comment| %> <!-- 5 -->
       <% unless comment.id.nil? %> <!-- 6 -->
-        <li class="comment-container list-unstyled">
-          <div class="comment-box">
-            <div class="comment-avater">
+        <li class="container list-unstyled">
+          <div class="row">
+            <div class="col-3">
               <%= attachment_image_tag comment.staff, :profile_image_id, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %>
-            </div>
-            <div class="comment-text">
               <p>@<%= comment.staff.last_name %><%= comment.staff.first_name %></p>
-              <div class="comment-entry">
-                <%= comment.comment %>
-                <%# if comment.staff == current_staff || comment.admin == current_admin %> <!-- 7 -->
-                  <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %> <!-- 8 -->
-                    <i class="fas fa-trash-alt" style="color: black;"></i>
-                  <% end %> <!-- 8 -->
-                <%# end %> <!-- 7 -->
-              </div>
-              <span>
-                <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-              </span>
             </div>
+            <div class="col-4">
+              <%= comment.comment %>
+                <%# if comment.staff == current_staff || comment.admin == current_admin %> <!-- 7 -->
+                  <%= link_to information_comment_path(comment.information_id, comment.id), method: :delete, remote: true, class:"comment_destroy" do %>
+                   <i class="fas fa-trash-alt" style="color: black;"></i>
+                  <% end %>
+                <%# end %> <!-- 7 -->
+            </div>
+            <span class="col-3 pull-right">
+              <%= comment.created_at.strftime('%Y/%m/%d') %>
+            </span>
           </div>
           <% comment.replies.each do |reply| %>
           <div class="comment-text">
