@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row no-gutters">
+      <h6 class="text-dark bg-light p-1 mb-5 mt-5">スタッフ情報編集</h6>
+  </div>
+  <div class="row no-gutters">
+    <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_with model:@staff, url: staff_path(current_staff.id), local:true do |f| %>
+    <%#= render "staffs/shared/error_messages", resource: resource %>
+    <table class="table">
+      <tr>
+        <th style="border:none;">名前</th>
+        <td style="border:none;"><%= f.label :（姓）%></td>
+        <td style="border:none;"><%= f.text_field :last_name, autofocus: true, placeholder: "山田" %></td>
+        <td style="border:none;"><%= f.label :（名） %></td>
+        <td style="border:none;"><%= f.text_field :first_name, placeholder: "花子" %></td>
+      </tr>
+      <tr>
+        <th style="border:none;">フリガナ</th>
+        <td style="border:none;"><%= f.label :（セイ）%></td>
+        <td style="border:none;"><%= f.text_field :last_name_kana, placeholder: "ヤマダ" %></td>
+        <td style="border:none;"><%= f.label :（メイ） %></td>
+        <td style="border:none;"><%= f.text_field :first_name_kana, placeholder: "ハナコ" %></td>
+      </tr>
+      <tr>
+        <th style="border:none;"><%= f.label :メールアドレス %></th>
+        <td style="border:none;"></td>
+        <td style="border:none;"><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com" %></td>
+      </tr>
+      <tr>
+        <th style="border:none;"><%= f.label :プロフィール画像 %></th>
+        <td style="border:none;"></td>
+        <td style="border:none;"><%= f.attachment_field :profile_image %></td>
+      </tr>
+      <tr>
+        <th style="border:none;"></th>
+        <td style="border:none;"></td>
+        <td style="border:none;"><%= f.submit "編集する", class: "btn btn-dark" %></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>
