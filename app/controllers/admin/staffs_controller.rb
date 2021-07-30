@@ -2,7 +2,7 @@ class Admin::StaffsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @staffs = Staff.all.search(params[:search]).page(params[:page]).per(6)
+    @staffs = Staff.all.search(params[:search]).page(params[:page]).per(4)
   end
 
   def show
