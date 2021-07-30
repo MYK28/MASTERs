@@ -15,8 +15,11 @@
     <div class="p-2 1g:w-1/3 md:w-1/2 w-full">
       <div class="h-full flex items-center border-gray-200 border p-4 rounded-1g">
         <div class="flex-grow">
-          <h6 class="text-gray-900 title-font font-medium"><%= staff.last_name %><%= staff.first_name %></h6>
-          <%= link_to "詳細", admin_staff_path(staff.id), class:"btn btn-dark float-right clearfix"%>
+          <h6 class="text-gray-900 title-font font-medium">
+            <%= attachment_image_tag staff, :profile_image, fallback: "no_image1.jpg", size: "60x60" %>
+            <%= staff.last_name %><%= staff.first_name %>
+            <%= link_to "詳細", admin_staff_path(staff.id), class:"btn btn-dark float-right clearfix"%>
+          </h6>
         </div>
       </div>
     </div>
