@@ -14,7 +14,8 @@
       </ul>
     </div>
     <% elsif staff_signed_in? %>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse text-light" id="navbarNavAltMarkup">
+        <%= "ようこそ #{current_staff.last_name + current_staff.first_name} さん!" %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item nav-link ml-auto"><%= link_to "マイページ", staff_path(current_staff.id), class:"text-light" %></li>
         <li class="nav-item nav-link ml-auto"><%= link_to "チェック済み一覧", checked_informations_path, class:"text-light" %></li>
