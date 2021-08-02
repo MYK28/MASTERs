@@ -3,9 +3,7 @@
       <h6 class="text-dark bg-light p-1 mb-5 mt-5">スタッフ情報編集</h6>
   </div>
   <div class="row no-gutters">
-    <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= form_with model:@staff, url: staff_path(current_staff.id), local:true do |f| %>
-    <%#= render "staffs/shared/error_messages", resource: resource %>
     <table class="table">
       <tr>
         <th style="border:none;">名前</th>
