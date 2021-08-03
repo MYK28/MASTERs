@@ -26,9 +26,6 @@
           <li id="comments_area list-unstyled">
             <%= render partial: 'admin/comments/index', locals: {comments: @staff_comments} %>
           </li>
-          <!--<li id="comments_area">-->
-          <!--  <%#= render partial: 'admin/comments/index', locals: {comments: @admin_comments} %>-->
-          <!--</li>-->
         </ul>
         <hr>
         <% if admin_signed_in? %>
