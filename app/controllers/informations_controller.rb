@@ -4,7 +4,8 @@ class InformationsController < ApplicationController
     checked_informations = Information.joins(:checks).where(checks: { staff_id: current_staff.id })
     non_checked_informations = Information.where.not(id: checked_informations.ids)
     @informations = Kaminari.paginate_array(non_checked_informations).page(params[:page]).per(6)
-
+    
+    #上記コードに変更
     # informations = [] 
     # all_informations = Information.all
     # all_informations.each do |information|
@@ -20,7 +21,8 @@ class InformationsController < ApplicationController
     checked_informations = Information.joins(:checks).where(checks: { staff_id: current_staff.id })
     checked_informations = Information.where(id: checked_informations.ids)
     @informations = Kaminari.paginate_array(checked_informations).page(params[:page]).per(6)
-
+    
+    #上記コードに変更
     # informations = []
     # all_informations = Information.all
     # all_informations.each do |information|
