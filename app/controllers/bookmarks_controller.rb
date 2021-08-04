@@ -21,7 +21,6 @@ class BookmarksController < ApplicationController
     bookmark = @information.bookmarks.find_by(staff_id: current_staff.id)
     if bookmark.present?
       bookmark.destroy
-      # bookmark.save
       redirect_to request.referer
     else
       redirect_to request.referer
