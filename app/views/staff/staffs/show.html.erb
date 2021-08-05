@@ -14,6 +14,7 @@
                        <th scope="col"></th>
                        <th scope="col"></th>
                        <th scope="col">タイトル</th>
+                       <th scope="col"></th>
                    </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                         <th scope="row"></th>
                         <td><%= attachment_image_tag information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
                         <td><%= information.title %></td>
+                        <td scope="row"><%= link_to "詳細", information_path(information), class:"btn btn-dark" %></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -35,6 +37,7 @@
                   <th scope="col"></th>
                   <th scope="col"></th>
                   <th scope="col">タイトル</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -43,6 +46,7 @@
                     <th scope="col"></th>
                     <td><%= attachment_image_tag information, :image, fallback: "no_image1.jpg", class:"comment-image", size: "40x40" %></td>
                     <td><%= information.title %></td>
+                    <td scope="row"><%= link_to "詳細", information_path(information), class:"btn btn-dark" %></td>
                   </tr>
                 <% end %>
               </tbody>
