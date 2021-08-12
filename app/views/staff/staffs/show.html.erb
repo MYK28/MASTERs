@@ -1,9 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-2">
+          <div class="text-center">
             <%= attachment_image_tag @staff, :profile_image, fallback: "no_image1.jpg", class:"comment-image mt-5", size: "60x60" %>
-            <h6><%= @staff.last_name %><%= @staff.first_name %></h6><br />
-            <h6><%= @staff.email %></h6>
+          </div>  
+            <h6 class="text-center bg-light mt-2">名前</h6>
+            <h6 class="text-center"><%= @staff.last_name %><%= @staff.first_name %></h6><br />
+            <h6 class="text-center bg-light mt-2">メールアドレス</h6>
+            <h6 class="text-center"><%= @staff.email %></h6>
             <p class="mt-5"><%= link_to "編集する", edit_staff_path(@staff), class:"btn btn-dark btn-block" %></p>
         </div>
         <div class="col-lg-5">
