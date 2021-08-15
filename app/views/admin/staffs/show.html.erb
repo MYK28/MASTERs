@@ -7,7 +7,7 @@
             <h6 class="text-center bg-light mt-2">名前</h6>
             <h6 class="text-center"><%= @staff.last_name %><%= @staff.first_name %></h6><br />
             <h6 class="text-center bg-light mt-2">メールアドレス</h6>
-            <h6 ><%= @staff.email %></h6>
+            <h6 class="text-center"><%= @staff.email %></h6>
             <% if @staff.is_deleted? %> <!-- 既にデータがあるためis_deletedでtrue, falseを呼び出すことができる -->
             <p class="mt-5"><%= link_to "退会を外す", admin_staff_path(@staff), method: :delete, data: { confirm: "スタッフの退会を解除しますか？" }, class:"btn btn-dark btn-block" %></p>
             <% else %>
